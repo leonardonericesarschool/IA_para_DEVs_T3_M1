@@ -3,16 +3,8 @@ import re
 
 app = Flask(__name__)
 
-# Function to validate CPF
-def validate_cpf(cpf: str) -> bool:
-    '''
-    Validate a Brazilian CPF number.
-    args:
-        cpf (str): The CPF number as a string.
-    returns:
-        bool: True if valid, False otherwise.
-    '''
 
+def validate_cpf(cpf: str) -> bool:
     cpf = re.sub(r'[^0-9]', '', cpf)
     if len(cpf) != 11 or cpf == cpf[0] * 11:
         return False
